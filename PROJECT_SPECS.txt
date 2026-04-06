@@ -1,0 +1,109 @@
+═══════════════════════════════════════════════════════════════
+ JARVIS V2 — PROJECT SPECIFICATIONS
+ BYTEFORGE SYSTEM
+═══════════════════════════════════════════════════════════════
+
+PROJECT: JARVIS V2 — Futuristic AI Desktop Assistant
+TYPE:    Electron Desktop Application
+VERSION: 2.0.0
+
+─────────────────────────────────────────────────────────────
+ CORE REQUIREMENTS
+─────────────────────────────────────────────────────────────
+
+1. Desktop Framework: Electron (Node.js + HTML/CSS/JS)
+   - main.js controls app lifecycle
+   - renderer process handles UI
+   - preload.js securely exposes backend via contextBridge
+
+2. Standalone Desktop Window:
+   - No browser UI elements (no URL bar, no dev look)
+   - Custom window title: "JARVIS V2"
+   - Frameless window for futuristic feel
+
+3. Real Python Backend Communication:
+   - Node.js child_process spawns Python scripts
+   - Send commands from UI → Python
+   - Receive responses from Python → UI
+   - Async, non-blocking communication
+
+4. Python Backend Responsibilities:
+   - Handle Google Gemini API
+   - Process recognized commands
+   - Return clean JSON responses
+
+─────────────────────────────────────────────────────────────
+ DESKTOP-LEVEL FEATURES
+─────────────────────────────────────────────────────────────
+
+- Open applications (Chrome, VS Code, Notepad)
+- Access real system information (CPU %, RAM %)
+- Execute OS-level commands safely
+
+─────────────────────────────────────────────────────────────
+ UI DESIGN — JARVIS HUD
+─────────────────────────────────────────────────────────────
+
+Layout:
+
+ -----------------------------------------
+|   JARVIS v2            ● ONLINE        |
+|----------------------------------------|
+|     [ CENTRAL AI CORE / REACTOR ]      |
+|----------------------------------------|
+|  COMMAND INPUT:  [______________]      |
+|  RESPONSE PANEL:                       |
+|  > Good evening. How may I assist?     |
+|----------------------------------------|
+| CPU: 32% | RAM: 48% | STATUS: ACTIVE   |
+ -----------------------------------------
+
+Design: Dark theme, neon blue accents, glassmorphism, 
+        Orbitron + Share Tech Mono fonts
+
+─────────────────────────────────────────────────────────────
+ ANIMATIONS
+─────────────────────────────────────────────────────────────
+
+- Rotating AI core rings (3 concentric)
+- Pulsing center glow, orbital dots
+- Typing animation for responses
+- Loading dots, scanline overlay
+
+─────────────────────────────────────────────────────────────
+ COMMANDS
+─────────────────────────────────────────────────────────────
+
+  time / help / exit / quit / stop
+  open chrome / open vscode / open notepad
+  search google <query>
+  (anything else → Gemini AI)
+
+─────────────────────────────────────────────────────────────
+ PROJECT STRUCTURE
+─────────────────────────────────────────────────────────────
+
+jarvis/
+ ├── package.json        — Node.js manifest
+ ├── main.js             — Electron main process
+ ├── preload.js          — Secure context bridge
+ ├── renderer/
+ │   ├── index.html      — HUD layout
+ │   ├── style.css       — Dark theme + animations
+ │   └── app.js          — UI logic
+ ├── python/
+ │   └── jarvis.py       — Backend (commands + Gemini)
+ ├── requirements.txt    — Python dependencies
+ └── PROJECT_SPECS.txt   — This file
+
+─────────────────────────────────────────────────────────────
+ HOW TO RUN
+─────────────────────────────────────────────────────────────
+
+  1. pip install -r requirements.txt
+  2. npm install
+  3. npm run dev
+
+─────────────────────────────────────────────────────────────
+ BRANDING: "BYTEFORGE SYSTEM"
+═══════════════════════════════════════════════════════════════

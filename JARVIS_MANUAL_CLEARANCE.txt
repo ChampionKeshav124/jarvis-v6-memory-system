@@ -1,0 +1,19 @@
+# JARVIS V5 — TACTICAL MANUAL (RECOVERY)
+═══════════════════════════════════════════════════════════════
+Current System Path: C:\Users\defaultuser0\Desktop\Antigravity\jarvis
+Deployment Status: OPERATIONAL
+Elevation Required: YES (For Steam/System Control)
+═══════════════════════════════════════════════════════════════
+
+🚀 HOW TO ACTIVATE JARVIS (STABLE MODE):
+1. Locate 'Run_JARVIS_Admin.bat' in this folder.
+2. Right-Click it and select 'Run as Administrator'.
+3. Click 'Yes' on the Windows security prompt.
+4. JARVIS will boot with full Titan-Object-Link vision.
+
+🛠️ TROUBLESHOOTING:
+- Mouse Circle (Hanging): Run 'taskkill /F /IM electron.exe /T; taskkill /F /IM powershell.exe /T' in a terminal.
+- Not Clicking Steam: Ensure you ran the BAT file AS ADMINISTRATOR. Windows security blocks non-admin apps from clicking high-privilege apps like Steam.
+- Voice Sensitivity: Increase FFT resolution in renderer/app.js to 512 for better whisper detection.
+
+- [TITAN CORE]

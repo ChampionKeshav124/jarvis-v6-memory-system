@@ -1,0 +1,16 @@
+[JARVIS] Launching installer for: Upload Labs (AppID: 3606890)
+[12:03:40] DPI Awareness: LOCKED
+[12:03:40] STEAM INSTALLER PROCESS STARTED for: Upload Labs (AppID: 3606890)
+[12:03:41] Core Win32/PyAutoGUI: OK
+[12:03:42] uiautomation: OK
+[12:03:42] Starting strike loop (45 seconds), waiting for dialog to appear...
+[12:03:45] --- SCAN #1 ---
+[12:03:55] UIAutomation error: (-2147220991, 'An event was unable to invoke any of the subscribers', (None, None, None, 0, None))
+[12:03:55] UIAutomation failed to see the Install button. Attempting coordinate fallback via EnumWindows.
+[12:03:55] COORDINATE-STRIKE fallback: (926, 672)
+[12:03:56] COORDINATE-STRIKE delivered
+[12:03:58] --- SCAN #2 ---
+[12:04:00] UI-BUTTON 'Install' found at (619, 542) in 'Steam Games List'
+[12:04:00] Sliding...
+[12:04:01] MECHANICAL CLICK delivered on 'Install'
+[12:04:05] --- SCAN #3 ---

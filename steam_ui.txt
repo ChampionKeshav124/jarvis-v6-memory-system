@@ -1,0 +1,5 @@
+Name: Taskbar, Class: Shell_TrayWnd
+Name: YouTube - Comet, Class: Chrome_WidgetWin_1
+Name: Antigravity - Antigravity - Task, Class: Chrome_WidgetWin_1
+Name: , Class: NarratorHelperWindow
+Name: Program Manager, Class: Progman

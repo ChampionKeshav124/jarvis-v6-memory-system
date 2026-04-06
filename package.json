@@ -1,0 +1,15 @@
+{
+  "name": "jarvis-v2",
+  "version": "2.0.0",
+  "description": "JARVIS V2 — Futuristic AI Desktop Assistant by BYTEFORGE SYSTEM",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron ."
+  },
+  "author": "BYTEFORGE SYSTEM",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}
