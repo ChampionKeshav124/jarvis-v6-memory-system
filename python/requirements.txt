@@ -1,0 +1,29 @@
+# ═══════════════════════════════════════════════════════════════
+#  JARVIS — Python Dependencies
+#  Install with: pip install -r requirements.txt
+# ═══════════════════════════════════════════════════════════════
+
+# Core AI & HTTP
+requests>=2.32.0
+
+# System Monitoring
+psutil==6.1.0
+
+# GUI Automation (Mouse, Keyboard, Screenshots)
+PyAutoGUI==0.9.54
+pyperclip==1.9.0
+PyGetWindow==0.0.9
+
+# Windows Native APIs (Mouse injection, Window management)
+# NOTE: pywin32 provides win32gui, win32con, win32api
+pywin32==311
+
+# UI Automation (Find buttons by name in Windows UI tree)
+uiautomation==2.0.29
+
+# Image / Screenshot Analysis (Profile bypass)
+numpy==2.2.6
+
+# Optional: Visual AI Screen Analysis
+# Requires GEMINI_API_KEY in config.py
+# google-generativeai>=0.8.0

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JARVIS V6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ SCANLINE OVERLAY ═══ -->
+  <div class="scanline-overlay"></div>
+
+  <!-- ═══ TITLE BAR (draggable, frameless) ═══ -->
+  <header class="title-bar">
+    <div class="title-bar__left">
+      <span class="brand-label">BYTEFORGE SYSTEM</span>
+      <span class="title-label">JARVIS <span class="version-tag">V6</span></span>
+    </div>
+    <div class="title-bar__right">
+      <button id="btnAllowMic" class="voice-toggle voice-toggle--on" style="background:var(--warning); color:black; display:none;" title="Grant Mic Permission">
+        🎤 ALLOW MIC
+      </button>
+      <button id="btnVoiceToggle" class="voice-toggle voice-toggle--on" title="Toggle AI Voice">
+        <span class="voice-icon">🔊</span> <span id="voiceLabel">VOICE ON</span>
+      </button>
+      <span class="status-badge status-badge--idle" id="statusBadge">
+        <span class="status-dot"></span>
+        <span id="statusText">IDLE</span>
+      </span>
+      <div class="window-controls">
+        <button class="win-btn" id="btnMinimize" title="Minimize">─</button>
+        <button class="win-btn" id="btnMaximize" title="Maximize">☐</button>
+        <button class="win-btn win-btn--close" id="btnClose" title="Close">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN CONTAINER ═══ -->
+  <main class="main-container">
+
+    <!-- ── ARC REACTOR CORE ── -->
+    <section class="reactor-section">
+      <div class="reactor-wrapper">
+        <!-- Outer ring -->
+        <div class="reactor-ring reactor-ring--outer"></div>
+        <!-- Middle ring -->
+        <div class="reactor-ring reactor-ring--middle"></div>
+        <!-- Inner ring -->
+        <div class="reactor-ring reactor-ring--inner"></div>
+        <canvas id="micVisualizer" class="mic-visualizer"></canvas>
+        <!-- Core glow -->
+        <div class="reactor-core">
+          <div class="reactor-core__pulse"></div>
+          <span class="reactor-core__label">AI</span>
+        </div>
+        <!-- Orbital dots -->
+        <div class="orbital orbital--1"><span></span></div>
+        <div class="orbital orbital--2"><span></span></div>
+        <div class="orbital orbital--3"><span></span></div>
+      </div>
+      <p class="reactor-label">CENTRAL AI CORE — ACTIVE</p>
+      <p class="speaking-label" id="speakingLabel">VOICE TRANSMISSION ACTIVE</p>
+    </section>
+
+    <!-- ── RESPONSE PANEL ── -->
+    <section class="response-section">
+      <div class="section-header">
+        <span class="section-header__icon">▸</span>
+        <span>RESPONSE PANEL</span>
+      </div>
+      <div class="response-panel" id="responsePanel">
+        <div class="response-message response-message--system">
+          <span class="response-prefix">JARVIS &gt;</span>
+          <span class="response-text">JARVIS V6 online. Persistent memory active. How may I assist you?</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COMMAND INPUT ── -->
+    <section class="input-section">
+      <div class="input-wrapper">
+        <span class="input-prompt">COMMAND &gt;</span>
+        <input
+          type="text"
+          id="commandInput"
+          class="command-input"
+          placeholder="Enter command or ask a question..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="send-btn" id="sendBtn" title="Execute">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <button id="btnManualWake" class="win-btn" style="position:fixed; bottom:80px; right:20px; border-radius:50%; width:40px; height:40px; background:rgba(255,0,255,0.2); border:1px solid #ff00ff; color:#ff00ff; z-index:1000;" title="Manual Wake">⚡</button>
+  </main>
+
+  <!-- ═══ STATUS BAR ═══ -->
+  <footer class="status-bar">
+    <div class="stat-item">
+      <span class="stat-label">CPU</span>
+      <div class="stat-bar-bg"><div class="stat-bar-fill" id="cpuBar"></div></div>
+      <span class="stat-value" id="cpuValue">0%</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">RAM</span>
+      <div class="stat-bar-bg"><div class="stat-bar-fill" id="ramBar"></div></div>
+      <span class="stat-value" id="ramValue">0%</span>
+    </div>
+    <div class="stat-item stat-item--status">
+      <span class="stat-label">STATUS</span>
+      <span class="stat-value stat-value--active" id="systemStatus">ACTIVE</span>
+    </div>
+    <div class="stat-item stat-item--mic">
+      <span class="stat-label">HARDWARE</span>
+      <select id="micSelector" class="mic-select-dropdown">
+        <option>SCANNING DEVICES...</option>
+      </select>
+      <button id="btnFixPrivacy" class="fix-btn" title="Open Privacy Settings">FIX PRIVACY</button>
+    </div>
+    <div id="micStatus" style="font-size:8px; position:absolute; right:20px; bottom:45px; letter-spacing:1px; font-weight:700;">PHONETIC LEVEL: --</div>
+    <div class="stat-item stat-item--time">
+      <span class="stat-label">LOCAL</span>
+      <span class="stat-value" id="clockDisplay">--:--:--</span>
+    </div>
+  </footer>
+
+  <div id="activationOverlay" class="activation-overlay">
+    <div class="activation-content">
+      <div class="reactor-ring--outer" style="width: 100px; height: 100px; margin: 0 auto 20px;"></div>
+      <h2>JARVIS V6</h2>
+      <p>Click to initialize neural link and grant microphone access.</p>
+      <button id="btnActivateSystem" class="send-btn" style="width:auto; padding: 10px 30px;">ACTIVATE SYSTEM</button>
+    </div>
+  </div>
+
+  <script src="app.js?v=6.0.0"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+[USER_INFO]
+# ══════════════════════════════════════════════════════════════
+# JARVIS V6 — USER IDENTITY MASTER SOURCE
+# ══════════════════════════════════════════════════════════════
+# 
+# Welcome to JARVIS. This file is your neural link's core database.
+# You can edit this file manually, OR just tell Jarvis:
+# "Jarvis, remember that my name is [Name]"
+# "Jarvis, remember that my occupation is [Job]"
+# 
+# Anything you change here is instantly reflected in his memory.
+# ══════════════════════════════════════════════════════════════
+
+Name: ByteForge
+Occupation: Developer
+Interests: JARVIS Architecture, AI Systems, Automation
+
+# ══════════════════════════════════════════════════════════════
+# ADDITIONAL KNOWLEDGE
+# Add anything JARVIS should always know about you below:
+# ══════════════════════════════════════════════════════════════
+# [EXTRA_INFO_START]
+# (Example: 'I prefer dark mode UI', 'I work on Python projects')
+# [EXTRA_INFO_END]
